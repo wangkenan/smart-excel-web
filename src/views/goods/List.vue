@@ -3,10 +3,11 @@
     <div class="upload-header">
       <el-upload
         class="upload-demo"
-        action="http://127.0.0.1:7001/upload/excel"
+        :action="`${base_url}/upload/excel`"
         multiple
         :data="{ id: this.$route.params.id }"
         :headers="headers"
+        :on-success="success"
       >
         <el-button size="small" type="primary">点击上传</el-button>
         <div slot="tip" class="el-upload__tip">只能上传excel文件</div>
@@ -49,6 +50,7 @@ export default {
       records: [],
       headers: {},
       query: {},
+      base_url: process.env.VUE_APP_BASE_API,
       pagination: {}
     }
   },
@@ -68,6 +70,10 @@ export default {
     },
     changePage (page) {
       this.query.page = page
+      this.getTableList()
+    },
+    success () {
+      console.log(123)
       this.getTableList()
     }
   }
