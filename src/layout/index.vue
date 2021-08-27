@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <div class="header">
-          <div class="logo">智能数据分析工具</div>
+          <div class="logo"><router-link to="/">山狼智能数据分析工具</router-link></div>
           <div><a href="javascript:void(0)" @click="logout">退出</a></div>
         </div>
       </el-header>
